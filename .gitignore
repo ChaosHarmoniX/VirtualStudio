@@ -16,3 +16,4 @@ MODNet/*
 !MODNet/input/
 __pycache__/
 .git
+*.pth
