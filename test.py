@@ -1,13 +1,14 @@
-from lib.options import *
-from MODNet.app.matte import Matte
-from BodyRelight.app.relight import Relight
+# from lib.options import * # TODO: 改了lib名字
+# from MODNet.app.matte import Matte
+# from BodyRelight.app.relight import Relight
 import MHFormer.app.gen as gen
 import numpy as np
-# 预处理
-opt = Options().parse() # 一些配置，比如batch_size，gpu_id等
-relight = Relight(opt)
-matte = Matte(opt)
+# # 预处理
+# opt = Options().parse() # 一些配置，比如batch_size，gpu_id等
+# relight = Relight(opt)
+# matte = Matte(opt)
 sc = gen.MHFormer()
+key_points = sc.get_3D_kpt()
 
 while True:
     # 从图片流中读取一帧

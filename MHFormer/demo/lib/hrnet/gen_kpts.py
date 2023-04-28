@@ -6,7 +6,8 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(
     os.path.join(os.path.dirname(__file__), '../..')))
-
+sys.path.insert(0, os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '../..')))
 import os.path as osp
 import argparse
 import time
@@ -24,8 +25,9 @@ from lib.hrnet.lib.utils.transforms import *
 from lib.hrnet.lib.utils.inference import get_final_preds
 from lib.hrnet.lib.models import pose_hrnet
 
-cfg_dir = './MHFormer/demo/lib/hrnet/experiments/'
-model_dir = './MHFormer/demo/lib/checkpoint/'
+src_path = "E:/MyProject/UE/Python/VirtualStudio/"
+cfg_dir = src_path + 'MHFormer/demo/lib/hrnet/experiments/'
+model_dir = src_path + 'MHFormer/demo/lib/checkpoint/'
 
 # Loading human detector model
 from lib.yolov3.human_detector import load_model as yolo_model
