@@ -66,7 +66,7 @@ def sc_gen_2d_kpt(video_path):
     return keypoints
     
 # 模型初始化
-def sc_model_init(model_path='checkpoint/mhformer/351'):
+def sc_model_init(model_path='checkpoint/mhformer/351', src_path = "E:/MyProject/UE/Python/VirtualStudio/"):
     args, _ = argparse.ArgumentParser().parse_known_args()
     args.layers, args.channel, args.d_hid, args.frames = 3, 512, 1024, 351
     args.pad = (args.frames - 1) // 2
@@ -77,7 +77,7 @@ def sc_model_init(model_path='checkpoint/mhformer/351'):
 
     model_dict = model.state_dict()
     # Put the pretrained model of MHFormer in 'checkpoint/pretrained/351'
-    model_path = sorted(glob.glob(os.path.join(args.previous_dir, '*.pth')))[0]
+    model_path = sorted(glob.glob(os.path.join(src_path+args.previous_dir, '*.pth')))[0]
 
     pre_dict = torch.load(model_path)
     for name, key in model_dict.items():
@@ -153,9 +153,10 @@ parser.add_argument('--gpu', type=str, default='0', help='input video')
 args = parser.parse_args()
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 print("Using GPU: {} ".format(args.gpu)," --- if CUDA is available: ",torch.cuda.is_available())
-video_path = './MHFormer/demo/video/' + args.video
+src_path = "E:/MyProject/UE/Python/VirtualStudio/"
+video_path = src_path + 'MHFormer/demo/video/' + args.video
 video_name = video_path.split('/')[-1].split('.')[0]
-output_dir = './MHFormer/demo/output/' + video_name + '/'
+output_dir = src_path + 'MHFormer/demo/output/' + video_name + '/'
 class MHFormer():
     def __init__(self) :
         self.sc_model,self.sc_args=sc_model_init()
