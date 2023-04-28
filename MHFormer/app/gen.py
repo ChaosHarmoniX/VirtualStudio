@@ -4,8 +4,8 @@ sys.path.insert(0, os.path.abspath(
     os.path.join(os.path.dirname(__file__), '..')))
 import argparse
 import cv2
-from demo.lib.preprocess import h36m_coco_format, revise_kpts
-from demo.lib.hrnet.gen_kpts import gen_video_kpts as hrnet_pose
+from demo.sclib.preprocess import h36m_coco_format, revise_kpts
+from demo.sclib.hrnet.gen_kpts import gen_video_kpts as hrnet_pose
 import numpy as np
 import torch
 import glob

@@ -1,8 +1,8 @@
 import sys
 import argparse
 import cv2
-from lib.preprocess import h36m_coco_format, revise_kpts
-from lib.hrnet.gen_kpts import gen_video_kpts as hrnet_pose
+from sclib.preprocess import h36m_coco_format, revise_kpts
+from sclib.hrnet.gen_kpts import gen_video_kpts as hrnet_pose
 import os 
 import numpy as np
 import torch

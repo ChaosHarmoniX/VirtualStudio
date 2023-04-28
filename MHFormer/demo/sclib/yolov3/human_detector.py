@@ -9,9 +9,9 @@ import random
 import pickle as pkl
 import argparse
 
-from lib.yolov3.util import *
-from lib.yolov3.darknet import Darknet
-from lib.yolov3 import preprocess
+from sclib.yolov3.util import *
+from sclib.yolov3.darknet import Darknet
+from sclib.yolov3 import preprocess
 
 cur_dir = os.path.dirname(os.path.realpath(__file__))
 project_root = os.path.join(cur_dir, '../../../')
