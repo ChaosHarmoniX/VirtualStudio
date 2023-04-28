@@ -164,15 +164,18 @@ class MHFormer():
         self.sc_frame_num = 0
         
         
+    def get_img(self):
+        self.sc_imageOfFrame = sc_get_seq_image(self.sc_video)
+        self.sc_frame_num+=1
+        return self.sc_imageOfFrame
     
     def get_3D_kpt(self):
-        sc_imageOfFrame = sc_get_seq_image(self.sc_video)
+        sc_imageOfFrame = self.sc_imageOfFrame
         sc_out_3d_kpt = sc_get_3D_kpt(img=sc_imageOfFrame,
                                       keypoints=self.sc_keypoints,
                                       model=self.sc_model,
                                       frame_number=self.sc_frame_num,
                                       args=self.sc_args)
-        self.sc_frame_num+=1
         print(sc_out_3d_kpt)
         return sc_out_3d_kpt
         
