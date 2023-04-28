@@ -177,7 +177,7 @@ class MHFormer():
                                       model=self.sc_model,
                                       frame_number=self.sc_frame_num,
                                       args=self.sc_args)
-        print(sc_out_3d_kpt)
+        # print(sc_out_3d_kpt)
         return sc_out_3d_kpt
         
         

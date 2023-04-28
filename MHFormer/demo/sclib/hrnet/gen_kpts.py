@@ -26,8 +26,8 @@ from sclib.hrnet.lib.utils.inference import get_final_preds
 from sclib.hrnet.lib.models import pose_hrnet
 
 src_path = "E:/MyProject/UE/Python/VirtualStudio/"
-cfg_dir = src_path + 'MHFormer/demo/lib/hrnet/experiments/'
-model_dir = src_path + 'MHFormer/demo/lib/checkpoint/'
+cfg_dir = src_path + 'MHFormer/demo/sclib/hrnet/experiments/'
+model_dir = src_path + 'MHFormer/demo/sclib/checkpoint/'
 
 # Loading human detector model
 from sclib.yolov3.human_detector import load_model as yolo_model
