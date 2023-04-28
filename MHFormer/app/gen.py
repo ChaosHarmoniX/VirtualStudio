@@ -146,6 +146,27 @@ def sc_get_3D_kpt( img, keypoints, model, frame_number,args):
     post_out = camera_to_world(post_out, R=rot, t=0)
     post_out[:, 2] -= np.min(post_out[:, 2])
     return post_out
+
+
+class MHFormer():
+    def __init__(self) :
+        self.sc_model,self.sc_args=sc_model_init()
+        self.sc_video, self.sc_numberOfFrame = sc_get_video(video_path)
+        self.sc_keypoints = sc_gen_2d_kpt(video_path)
+        self.sc_frame_num = 0
+    
+    def get_3D_kpt(self):
+        sc_imageOfFrame = sc_get_seq_image(self.sc_video)
+        sc_out_3d_kpt = sc_get_3D_kpt(img=sc_imageOfFrame,
+                                      keypoints=self.sc_keypoints,
+                                      model=self.sc_model,
+                                      frame_number=self.sc_frame_num,
+                                      args=self.sc_args)
+        self.sc_frame_num+=1
+        print(sc_out_3d_kpt)
+        
+        
+        
     
 
 if __name__ == "__main__":
